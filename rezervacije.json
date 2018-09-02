@@ -1,0 +1,33 @@
+[ {
+  "vozilo" : {
+    "vrstaVozila" : "Putnicko Vozilo",
+    "regBR" : 2425,
+    "gorivo" : {
+      "naziv" : "Benzin",
+      "cena" : 140.5
+    },
+    "brServisa" : 3,
+    "potrosnja100" : 6.1,
+    "predjeno" : 160000,
+    "preServis" : 5000,
+    "cenaServis" : 10000,
+    "cenaDan" : 2500,
+    "brSedist" : 4,
+    "brVrata" : 4,
+    "vozObrisano" : false
+  },
+  "iznajmljivac" : {
+    "korisnIme" : "ime2",
+    "lozinka" : "lozinka2",
+    "jmbg" : "blablajmbg",
+    "ime" : "Filip",
+    "prezime" : "fica",
+    "uloga" : "Iznajmljivac",
+    "brojTelefon" : "06333222",
+    "drzavljanstvo" : "Srbija"
+  },
+  "cenaRezerv" : 15000.0,
+  "rezervacijaObrisana" : false,
+  "datumPocetka" : "10/10/2015",
+  "datumKraja" : "20/10/2015"
+} ]

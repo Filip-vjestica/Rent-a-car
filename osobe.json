@@ -1,0 +1,23 @@
+[ {
+  "vrstaOsobe" : "Sluzbenik",
+  "o" : {
+    "korisnIme" : "ime1",
+    "lozinka" : "lozinka1",
+    "jmbg" : "34532",
+    "ime" : "Marko",
+    "prezime" : "Maki",
+    "uloga" : "Sluzbenik"
+  }
+}, {
+  "vrstaOsobe" : "Iznajmljivac",
+  "o" : {
+    "korisnIme" : "ime2",
+    "lozinka" : "lozinka2",
+    "jmbg" : "blablajmbg",
+    "ime" : "Filip",
+    "prezime" : "fica",
+    "uloga" : "Iznajmljivac",
+    "brojTelefon" : "06333222",
+    "drzavljanstvo" : "Srbija"
+  }
+} ]

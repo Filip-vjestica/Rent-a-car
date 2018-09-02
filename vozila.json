@@ -1,0 +1,73 @@
+[ {
+  "vrstaVozila" : "Putnicko Vozilo",
+  "o" : {
+    "vrstaVozila" : "Putnicko Vozilo",
+    "regBR" : 2425,
+    "gorivo" : {
+      "naziv" : "Benzin",
+      "cena" : 140.5
+    },
+    "brServisa" : 3,
+    "potrosnja100" : 6.1,
+    "predjeno" : 160000,
+    "preServis" : 5000,
+    "cenaServis" : 10000,
+    "cenaDan" : 2500,
+    "brSedist" : 4,
+    "brVrata" : 4,
+    "vozObrisano" : false
+  }
+}, {
+  "vrstaVozila" : "Teretno Vozilo",
+  "o" : {
+    "vrstaVozila" : "Teretno Vozilo",
+    "regBR" : 5253,
+    "gorivo" : {
+      "naziv" : "Dizel",
+      "cena" : 148.0
+    },
+    "brServisa" : 4,
+    "potrosnja100" : 7.0,
+    "predjeno" : 200000,
+    "preServis" : 3000,
+    "cenaServis" : 12000,
+    "cenaDan" : 3200,
+    "brSedist" : 4,
+    "brVrata" : 4,
+    "vozObrisano" : false,
+    "maxMasauKg" : 2225,
+    "visinauM" : 2.2
+  }
+}, {
+  "vrstaVozila" : "Bicikl",
+  "o" : {
+    "vrstaVozila" : "Bicikl",
+    "regBR" : 6576,
+    "gorivo" : null,
+    "brServisa" : 2,
+    "potrosnja100" : 0.0,
+    "predjeno" : 1500,
+    "preServis" : 100,
+    "cenaServis" : 1500,
+    "cenaDan" : 500,
+    "brSedist" : 1,
+    "brVrata" : 0,
+    "vozObrisano" : false
+  }
+}, {
+  "vrstaVozila" : "bicikl",
+  "o" : {
+    "vrstaVozila" : "Bicikl",
+    "regBR" : 6666,
+    "gorivo" : null,
+    "brServisa" : 3,
+    "potrosnja100" : 0.0,
+    "predjeno" : 1200,
+    "preServis" : 250,
+    "cenaServis" : 1500,
+    "cenaDan" : 600,
+    "brSedist" : 1,
+    "brVrata" : 0,
+    "vozObrisano" : false
+  }
+} ]
