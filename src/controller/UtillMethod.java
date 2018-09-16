@@ -64,32 +64,50 @@ public class UtillMethod implements KorisnickiInput {
 
 	// Metoda koja racuna cenu iznajmljivanja auta
 	public static double cenaIznaj(LocalDate a, LocalDate b, Vozilo v) {
+		double cena;
 		long daysBetween = ChronoUnit.DAYS.between(a, b);
-		double cena = daysBetween * v.getCenaDan();
-		return cena;
+		if(daysBetween<1) {
+			return  cena = v.getCenaDan();
+		} else {
+			cena = daysBetween * v.getCenaDan();
+			return cena;
+		}
+		
 	}
 
-	// Metoda koja trazi od korisnika da unese int i odma je parsuje!
-	public static int unesiteInt() {
+	// Metoda koja trazi od korisnika da unese broj
+	public static double unesiteBroj() {
 		while (true) {
+			try {
+				double rez = input.nextDouble();
+				return rez;
+			} catch (InputMismatchException e) {
+				System.out.println("Vas unos moras biti broj, pokusajte ponovo!");
+				input.next();
+			}
+		}
+	}
+	//Metoda koja trazi od korisnika da unese int
+	public static int unesiteInt() {
+		while(true) {
 			try {
 				int rez = input.nextInt();
 				return rez;
-			} catch (InputMismatchException e) {
-				System.out.println("Vas unos moras biti integer, pokusajte ponovo!");
+			}catch(InputMismatchException e) {
+				System.out.println("Vas unos mora biti celobrojna vrednost!");
 				input.next();
 			}
 		}
 	}
 
 	// Metoda za unos registarskog broja
-	public static int unosRegBroj() {
+	public static String unosRegBroj() {
 		while (true) {
 			boolean flag = true;
 			System.out.println("Unesite registarski broj vozila:");
-			int unosTablica = UtillMethod.unesiteInt();
+			String unosTablica = input.next();
 			for (Vozilo v : Main.getVozilaAll()) {
-				if (unosTablica == v.getRegBR()) {
+				if (unosTablica.equals(v.getRegBR())) {
 					System.out.println("Ovaj registarski broj je vec zauzet, pokusajte ponovo!");
 					flag = false;
 				}
@@ -108,34 +126,83 @@ public class UtillMethod implements KorisnickiInput {
 			System.out.println("Izaberite gorivo koje koristi vozilo:");
 			System.out.println("1 Benzin");
 			System.out.println("2 Dizel");
+			System.out.println("3 Elektricna Energija");
+			System.out.println("4 Ne koristi gorivo");
 			int unos = unesiteInt();
 			if (unos == 1) {
 				return Main.benzin;
 			} else if (unos == 2) {
 				return Main.dizel;
+			} else if (unos == 3) {
+				return Main.elektricnaEnergija;
+			} else if (unos == 4) {
+				return Main.nista;
 			} else {
 				System.out.println("Pogresan unos pokusajte ponovo");
 			}
 
 		}
 	}
+	// Metoda koja od korisnika trazi da li koristi jos neko dodatno gorivo
+	public static Gorivo izabirGorivaOpet(Gorivo v) {
+		while(true) {
+			System.out.println("Izaberite da li vozilo koristi jos neku vrstu goriva!");
+			System.out.println("1 Benzin");
+			System.out.println("2 Dizel");
+			System.out.println("3 Elektricna Energija");
+			System.out.println("4 Vozilo ne koristi nijedno dodatno gorivo");
+			Gorivo g1 = Main.benzin;
+			Gorivo g2 = Main.dizel;
+			Gorivo g3 = Main.elektricnaEnergija;
+			int unos = unesiteInt();
+			if(unos == 1) {
+				if(v.equals(g1)) {
+					System.out.println("Ne mozete da izaberete gorivo koje ste prethodno izabrali!");
+					break;
+				}
+				return g1;
+			} else if (unos == 2) {
+				if(v.equals(g2)) {
+					System.out.println("Ne mozete da izaberete gorivo koje ste prethodno izabrali!");
+					break;
+				}
+				return g2;
+			}
+			else if(unos == 3) {
+				if(v.equals(g3)) {
+					System.out.println("Ne mozete da izaberete gorivo koje ste prethodno izabrali!");
+					break;
+				}
+				return g3;
+			}
+			else if (unos == 4) {
+				return Main.nista;
+			}
+			else {
+				System.out.println("Pogresan unos pokusjate ponovo");
+			}
+			
+		}
+		return null;
+		
+	}
 
 	// Metoda koja trazi od korisnika da unese potrosnju kao double!
 	public static double unesiteDoublePotrosnja() {
 		while (true) {
 			try {
-				System.out.println("Unesite potrosnju(double) na 100km:");
+				System.out.println("Unesite potrosnju goriva na 100km:");
 				double rez = input.nextDouble();
 				return rez;
 			} catch (InputMismatchException e) {
-				System.out.println("Vas unos mora biti double, pokusajte ponovo!");
+				System.out.println("Vas unos mora biti broj, pokusajte ponovo!");
 				input.next();
 			}
 		}
 	}
 
 	// Metoda koja radi prvi servis na vozilu!
-	public static void prviServis(Vozilo v, int i) {
+	public static void prviServis(Vozilo v, double i) {
 		Servis prviServis = new Servis(v, DanasnjiDatum(), i);
 		v.dodajServis(prviServis);
 	}
@@ -157,11 +224,11 @@ public class UtillMethod implements KorisnickiInput {
 	public static double unesiteDouble() {
 		while (true) {
 			try {
-				System.out.println("Unesite double:");
+				System.out.println("Unesite broj:");
 				double rez = input.nextDouble();
 				return rez;
 			} catch (InputMismatchException e) {
-				System.out.println("Vas unos mora biti double, pokusajte ponovo!");
+				System.out.println("Vas unos mora biti broj, pokusajte ponovo!");
 				input.next();
 			}
 		}
@@ -171,7 +238,7 @@ public class UtillMethod implements KorisnickiInput {
 	public static void proveraServisaVozila(Vozilo v) {
 		if (v.getVrstaVozila().equals("Putnicko Vozilo") && v.velicinaServisa() >= 1) {
 			Servis prethodniServis = v.getServisiNadVozilom(v.velicinaServisa() - 1);
-			int km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
+			double km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
 			if (km >= 10000) {
 				System.out.println("Vozilo je preslo dovoljnu razdaljinu za servis!");
 				System.out.println("Servis u toku!");
@@ -181,7 +248,7 @@ public class UtillMethod implements KorisnickiInput {
 			}
 		} else if (v.getVrstaVozila().equals("Teretno Vozilo") && v.velicinaServisa() >= 1) {
 			Servis prethodniServis = v.getServisiNadVozilom(v.velicinaServisa() - 1);
-			int km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
+			double km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
 			if (km >= 20000) {
 				System.out.println("Vozilo je preslo dovoljnu razdaljinu za servis!");
 				System.out.println("Servis u toku!");
@@ -191,7 +258,7 @@ public class UtillMethod implements KorisnickiInput {
 			}
 		} else if (v.getVrstaVozila().equals("Bicikl") && v.velicinaServisa() >= 1) {
 			Servis prethodniServis = v.getServisiNadVozilom(v.velicinaServisa() - 1);
-			int km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
+			double km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
 			if (km >= 700) {
 				System.out.println("Vozilo je preslo dovoljnu razdaljinu za servis!");
 				System.out.println("Servis u toku!");
@@ -237,8 +304,8 @@ public class UtillMethod implements KorisnickiInput {
 	}
 
 	// Metoda koja racuna cenu za vracanje vozila
-	public static double ukupnaCenaIznajmljivanja(Rezervacija r, int i) {
-		double cenaPuta = MeniFunkcionalnost.cenaTroskaVoz(r.getVozilo(), i);
+	public static double ukupnaCenaIznajmljivanja(Rezervacija r, double i,Gorivo g) {
+		double cenaPuta = MeniFunkcionalnost.cenaTroskaVoz(r.getVozilo(), i,g);
 		double cenaIznaj = cenaIznaj(UtillMethod.parsovanjeDatuma(r.getDatumPocetka()),
 				UtillMethod.parsovanjeDatuma(r.getDatumKraja()), r.getVozilo());
 		r.getVozilo().setPredjeno(r.getVozilo().getPredjeno() + i);
@@ -258,7 +325,7 @@ public class UtillMethod implements KorisnickiInput {
 	public static boolean proveraServisaVozilaBool(Vozilo v) {
 		if (v.getVrstaVozila().equals("Putnicko Vozilo") && v.velicinaServisa() > 1) {
 			Servis prethodniServis = v.getServisiNadVozilom(v.velicinaServisa() - 1);
-			int km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
+			double km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
 			if (km >= 10000) {
 				System.out.println("Vozilo je preslo dovoljnu razdaljinu za servis!");
 				System.out.println("Servis u toku!");
@@ -270,7 +337,7 @@ public class UtillMethod implements KorisnickiInput {
 			}
 		} else if (v.getVrstaVozila().equals("Teretno Vozilo") && v.velicinaServisa() > 1) {
 			Servis prethodniServis = v.getServisiNadVozilom(v.velicinaServisa() - 1);
-			int km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
+			double km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
 			if (km >= 20000) {
 				System.out.println("Vozilo je preslo dovoljnu razdaljinu za servis!");
 				System.out.println("Servis u toku!");
@@ -282,7 +349,7 @@ public class UtillMethod implements KorisnickiInput {
 			}
 		} else if (v.getVrstaVozila().equals("Bicikl") && v.velicinaServisa() > 1) {
 			Servis prethodniServis = v.getServisiNadVozilom(v.velicinaServisa() - 1);
-			int km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
+			double km = v.getPredjeno() - prethodniServis.getBrPredjenihKm();
 			if (km >= 700) {
 				System.out.println("Vozilo je preslo dovoljnu razdaljinu za servis!");
 				System.out.println("Servis u toku!");

@@ -4,7 +4,7 @@ import controller.KorisnickiInput;
 //Basic tmp
 public class Rezervacija implements KorisnickiInput {
 	private Vozilo vozilo;
-	private Osoba iznajmljivac;
+	private Iznajmljivac iznajmljivac;
 	private double cenaRezerv;
 	private boolean rezervacijaObrisana;
 	private String datumPocetka;
@@ -13,7 +13,7 @@ public class Rezervacija implements KorisnickiInput {
 	public Rezervacija() {
 	}
 
-	public Rezervacija(Vozilo vozilo, Osoba iznajmljivac, double cenaRezerv, boolean rezervacijaObrisana,
+	public Rezervacija(Vozilo vozilo, Iznajmljivac iznajmljivac, double cenaRezerv, boolean rezervacijaObrisana,
 			String datumPocetka, String datumKraja) {
 		this.vozilo = vozilo;
 		this.iznajmljivac = iznajmljivac;
@@ -39,11 +39,11 @@ public class Rezervacija implements KorisnickiInput {
 		this.vozilo = vozilo;
 	}
 
-	public Osoba getIznajmljivac() {
+	public Iznajmljivac getIznajmljivac() {
 		return iznajmljivac;
 	}
 
-	public void setIznajmljivac(Osoba iznajmljivac) {
+	public void setIznajmljivac(Iznajmljivac iznajmljivac) {
 		this.iznajmljivac = iznajmljivac;
 	}
 

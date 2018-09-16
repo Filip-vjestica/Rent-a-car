@@ -2,20 +2,22 @@ package view;
 
 import controller.KorisnickiInput;
 
+
 import controller.MeniFunkcionalnost;
+import model.Iznajmljivac;
 import model.Osoba;
 
 public class Meni implements KorisnickiInput {
 
 	public static void meniSluzbenik() {
 		System.out.println(
-				"\n--Glavni Meni-- \n1) Racunanje troskova za predjeni put!\n2) Racunanje vremena sledeceg servisa!\n3) Dodavanje vozila!\n4) Brisanje vozila!\n5) Izlazak iz aplikacije!");
+				"\n--Glavni Meni-- \n1) Racunanje troskova za predjeni put!\n2) Racunanje vremena sledeceg servisa!\n3) Dodavanje vozila!\n4) Brisanje vozila!\n5) Otkazivanje rezervacije!\n6) Vracanje Vozila!\n7) Izlazak iz aplikacije1");
 		System.out.println("\nIzbor: ");
 	}
 
 	public static void meniIznajmljivac() {
 		System.out.println(
-				"\n--Glavni Meni--\n1) Racunanje troskova za predjeni put!\n2) Racunanje vremena sledeceg servisa!\n3) Trazenje odgovarajucih vozila!\n4) Pravljenje rezervacije!\n5) Otkazivanje rezervacije!\n6) Vracanje Vozila!\n7) Izlazak iz aplikacije!");
+				"\n--Glavni Meni--\n1) Racunanje troskova za predjeni put!\n2) Racunanje vremena sledeceg servisa!\n3) Trazenje odgovarajucih vozila/pravljenje rezervacije!\n4) Otkazivanje rezervacije!\n5) Vracanje Vozila!\n6) Izlazak iz aplikacije!");
 		System.out.println("\nIzbor: ");
 	}
 
@@ -35,6 +37,12 @@ public class Meni implements KorisnickiInput {
 				System.out.println("Izabrali ste meni za brisanje vozila!");
 				MeniFunkcionalnost.brisanjeVozila();
 			} else if (unosKorisnikaMeni.equals("5")) {
+				System.out.println("Izabrali ste otkazivanje rezervacije!");
+				MeniFunkcionalnost.otkazivanjeRezervacije(o);
+			} else if (unosKorisnikaMeni.equals("6")) {
+				System.out.println("Izabrali ste vracanje vozila!");
+				MeniFunkcionalnost.vracanjeVozila(o);
+			} else if (unosKorisnikaMeni.equals("7")) {
 				System.out.println("Izabrali ste izlazak iz aplikacije! Dovidjenja :)");
 				System.exit(0);
 			} else {
@@ -55,17 +63,14 @@ public class Meni implements KorisnickiInput {
 				MeniFunkcionalnost.proveraServisa();
 			} else if (unosKorisnikaMeni.equals("3")) {
 				System.out.println("Izabrali ste trazenje odgovarajuceg vozila!");
-				MeniFunkcionalnost.trazenjeVozila();
+				MeniFunkcionalnost.trazenjeVozila((Iznajmljivac) o);
 			} else if (unosKorisnikaMeni.equals("4")) {
-				System.out.println("Izabrali ste pravljenje rezervacije!");
-				MeniFunkcionalnost.pravljenjeRezervacije(o);
-			} else if (unosKorisnikaMeni.equals("5")) {
 				System.out.println("Izabrali ste otkazivanje rezervacije!");
 				MeniFunkcionalnost.otkazivanjeRezervacije(o);
-			} else if (unosKorisnikaMeni.equals("6")) {
+			} else if (unosKorisnikaMeni.equals("5")) {
 				System.out.println("Izabrali ste vracanje vozila!");
 				MeniFunkcionalnost.vracanjeVozila(o);
-			} else if (unosKorisnikaMeni.equals("7")) {
+			} else if (unosKorisnikaMeni.equals("6")) {
 				System.out.println("Izabrali ste izlazak iz aplikacije! Dovidjenja :)");
 				System.exit(0);
 			}

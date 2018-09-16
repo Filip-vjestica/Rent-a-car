@@ -9,10 +9,10 @@ public class Bicikl extends Vozilo implements KorisnickiInput {
 	public Bicikl() {
 	}
 
-	public Bicikl(String vrstaVozila, int regBR, Gorivo gorivo, int brServisa, double potrosnja100, int predjeno,
-			int preServis, int cenaServis, int cenaDan, int brSedist, int brVrata, boolean vozObrisano,
+	public Bicikl(String vrstaVozila, String regBR, ArrayList<Gorivo> gorivaVozila, int brServisa, double potrosnja100, double predjeno,
+			double preServis, double cenaServis, double cenaDan, int brSedist, int brVrata, boolean vozObrisano,
 			ArrayList<Servis> ServisiNadVozilom) {
-		super(vrstaVozila, regBR, gorivo, brServisa, potrosnja100, predjeno, preServis, cenaServis, cenaDan, brSedist,
+		super(vrstaVozila, regBR, gorivaVozila, brServisa, potrosnja100, predjeno, preServis, cenaServis, cenaDan, brSedist,
 				brVrata, vozObrisano, ServisiNadVozilom);
 	}
 

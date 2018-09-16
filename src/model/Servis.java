@@ -3,12 +3,12 @@ package model;
 public class Servis {
 	private Vozilo vozilo;
 	private String datumServis;
-	private int brPredjenihKm;
+	private double brPredjenihKm;
 
 	public Servis() {
 	}
 
-	public Servis(Vozilo vozilo, String datumServis, int brPredjenihKm) {
+	public Servis(Vozilo vozilo, String datumServis, double brPredjenihKm) {
 		super();
 		this.vozilo = vozilo;
 		this.datumServis = datumServis;
@@ -31,11 +31,11 @@ public class Servis {
 		this.datumServis = datumServis;
 	}
 
-	public int getBrPredjenihKm() {
+	public double getBrPredjenihKm() {
 		return brPredjenihKm;
 	}
 
-	public void setBrPredjenihKm(int brPredjenihKm) {
+	public void setBrPredjenihKm(double brPredjenihKm) {
 		this.brPredjenihKm = brPredjenihKm;
 	}
 

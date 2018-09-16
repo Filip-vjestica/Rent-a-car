@@ -2,18 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
+
+
 //Basic tmp
 
 public abstract class Vozilo {
 	private String vrstaVozila;
-	private int regBR;
-	private Gorivo gorivo;
+	private String regBR;
+	private ArrayList<Gorivo> gorivaVozila;
 	private int brServisa;
 	private double potrosnja100;
-	private int predjeno;
-	private int preServis;
-	private int cenaServis;
-	private int cenaDan;
+	private double predjeno;
+	private double preServis;
+	private double cenaServis;
+	private double cenaDan;
 	private int brSedist;
 	private int brVrata;
 	private boolean vozObrisano;
@@ -22,12 +24,12 @@ public abstract class Vozilo {
 	public Vozilo() {
 	}
 
-	public Vozilo(String vrstaVozila, int regBR, Gorivo gorivo, int brServisa, double potrosnja100, int predjeno,
-			int preServis, int cenaServis, int cenaDan, int brSedist, int brVrata, boolean vozObrisano,
+	public Vozilo(String vrstaVozila, String regBR, ArrayList<Gorivo> gorivaVozila, int brServisa, double potrosnja100, double predjeno,
+			double preServis, double cenaServis, double cenaDan, int brSedist, int brVrata, boolean vozObrisano,
 			ArrayList<Servis> ServisiNadVozilom) {
 		this.vrstaVozila = vrstaVozila;
 		this.regBR = regBR;
-		this.gorivo = gorivo;
+		this.gorivaVozila = gorivaVozila;
 		this.brServisa = brServisa;
 		this.potrosnja100 = potrosnja100;
 		this.predjeno = predjeno;
@@ -62,13 +64,6 @@ public abstract class Vozilo {
 
 	public abstract String toString();
 
-	public Gorivo getGorivo() {
-		return gorivo;
-	}
-
-	public void setGorivo(Gorivo gorivo) {
-		this.gorivo = gorivo;
-	}
 
 	public int getBrServisa() {
 		return brServisa;
@@ -78,19 +73,19 @@ public abstract class Vozilo {
 		this.brServisa = brServisa;
 	}
 
-	public int getPredjeno() {
+	public double getPredjeno() {
 		return predjeno;
 	}
 
-	public void setPredjeno(int predjeno) {
+	public void setPredjeno(double predjeno) {
 		this.predjeno = predjeno;
 	}
 
-	public int getPreServis() {
+	public double getPreServis() {
 		return preServis;
 	}
 
-	public void setPreServis(int preServis) {
+	public void setPreServis(double preServis) {
 		this.preServis = preServis;
 	}
 
@@ -102,7 +97,7 @@ public abstract class Vozilo {
 		this.vozObrisano = vozObrisano;
 	}
 
-	public int getRegBR() {
+	public String getRegBR() {
 		return regBR;
 	}
 
@@ -110,11 +105,11 @@ public abstract class Vozilo {
 		return potrosnja100;
 	}
 
-	public int getCenaServis() {
+	public double getCenaServis() {
 		return cenaServis;
 	}
 
-	public int getCenaDan() {
+	public double getCenaDan() {
 		return cenaDan;
 	}
 
@@ -122,7 +117,7 @@ public abstract class Vozilo {
 		return brSedist;
 	}
 
-	public void setRegBR(int regBR) {
+	public void setRegBR(String regBR) {
 		this.regBR = regBR;
 	}
 
@@ -130,12 +125,28 @@ public abstract class Vozilo {
 		this.potrosnja100 = potrosnja100;
 	}
 
-	public void setCenaServis(int cenaServis) {
+	public void setCenaServis(double cenaServis) {
 		this.cenaServis = cenaServis;
 	}
 
-	public void setCenaDan(int cenaDan) {
+	public void setCenaDan(double cenaDan) {
 		this.cenaDan = cenaDan;
+	}
+
+	public ArrayList<Gorivo> getGorivaVozila() {
+		return gorivaVozila;
+	}
+
+	public void setGorivaVozila(ArrayList<Gorivo> gorivaVozila) {
+		this.gorivaVozila = gorivaVozila;
+	}
+
+	public ArrayList<Servis> getServisiNadVozilom() {
+		return servisiNadVozilom;
+	}
+
+	public void setServisiNadVozilom(ArrayList<Servis> servisiNadVozilom) {
+		this.servisiNadVozilom = servisiNadVozilom;
 	}
 
 	public void setBrSedist(int brSedist) {
@@ -149,4 +160,8 @@ public abstract class Vozilo {
 	public int getBrVrata() {
 		return brVrata;
 	}
+	public void dodajGorivo(Gorivo v) {
+		this.gorivaVozila.add(v);
+	}
+	
 }

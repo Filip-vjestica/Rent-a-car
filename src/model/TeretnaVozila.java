@@ -10,10 +10,10 @@ public class TeretnaVozila extends Vozilo {
 	public TeretnaVozila() {
 	}
 
-	public TeretnaVozila(String vrstaVozila, int regBR, Gorivo gorivo, int brServisa, double potrosnja100, int predjeno,
-			int preServis, int cenaServis, int cenaDan, int brSedist, int brVrata, boolean vozObrisano,
+	public TeretnaVozila(String vrstaVozila, String regBR, ArrayList<Gorivo> gorivaVozila, int brServisa, double potrosnja100, double predjeno,
+			double preServis, double cenaServis, double cenaDan, int brSedist, int brVrata, boolean vozObrisano,
 			ArrayList<Servis> servisiNadVozilom, int maxMasauKg, double visinauM) {
-		super(vrstaVozila, regBR, gorivo, brServisa, potrosnja100, predjeno, preServis, cenaServis, cenaDan, brSedist,
+		super(vrstaVozila, regBR, gorivaVozila, brServisa, potrosnja100, predjeno, preServis, cenaServis, cenaDan, brSedist,
 				brVrata, vozObrisano, servisiNadVozilom);
 		this.maxMasauKg = maxMasauKg;
 		this.visinauM = visinauM;
@@ -21,7 +21,7 @@ public class TeretnaVozila extends Vozilo {
 	}
 
 	public String toString() {
-		return "\nTeretno vozilo-Registarski broj:" + super.getRegBR() + " | Gorivo:" + super.getGorivo()
+		return "\nTeretno vozilo-Registarski broj:" + super.getRegBR() + " | Gorivo:" + super.getGorivaVozila()
 				+ " | Prosecna potrosnja/100km:" + super.getPotrosnja100() + " | Cena na dan:" + super.getCenaDan()
 				+ " | Broj sedista:" + super.getBrSedist() + " | Broj vrata:" + super.getBrVrata()
 				+ " | Maximanlna masa u kg:" + this.maxMasauKg + " | Visina u metrima:" + this.visinauM;
